@@ -85,3 +85,13 @@ subscriptions.showOffers({skus: ['sku1', 'sku2']});
 ```
 
 *Important!* Please ensure you set up the `setOnSubscribeResponse` on any page where you accept purchases, not just before you call `subscribe` or `showOffers`. SwG client ensures it can recover subscriptions even when browsers unload pages. See [Subscribe flow](./subscribe-flow.md) for more details.
+
+## Update Subscription
+
+The `showUpdateOffers` method pulls up the offers carousel to allow users to change their subscription plan. `showUpdateOffers` must be invoked with a list of skus that the user may switch to, as well as the sku corresponding to the user's current plan. If a sku in the list is the same as the user's current sku, it will automatically be removed. If only one sku is given in the list, the flow will automatically redirect to the payments iframe.
+
+For instance:
+
+```js
+subscriptions.showUpdateOffers({skus: ['sku1','sku2'], oldSku: 'old_sku'});
+```

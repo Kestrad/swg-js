@@ -48,6 +48,12 @@ subscriptions.subscribe(sku);
 
 Another way to trigger the subscribe flow is by starting [Offers flow](./offers-flow.md).
 
+A version of this flow can be activated for subscription updates, by calling the `updateSubscription` method with the user's current sku and the sku they should update to:
+
+```js
+subscriptions.updateSubscription({skuId: 'sku1', oldSku: 'old_sku'});
+```
+
 The `setOnSubscribeResponse` callback will be called once the subscription is complete, or when the previously executed subscription is recovered.
 
 ## Subscribe response
